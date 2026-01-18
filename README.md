@@ -27,9 +27,9 @@ Project Structure
 └─ backend/     # .NET Web API
 ```
 
-Database Setup (MySQL)
+## Database Setup (MySQL)
 
-Configure the connection string in:
+### Configure the connection string in:
 
 ```bash
 backend/AssetInventory.Api/appsettings.Development.json
@@ -45,22 +45,33 @@ Example:
 }
 ```
 
+## Entity Framework Core Migrations (IMPORTANT)
 
-Apply Entity Framework Core migrations to create or update the database:
+⚠️ **All EF Core migration commands must be run from the `AssetInventory.Api` directory**  
+
+### 1. Navigate to the API project
+
+From the project root, run:
 
 ```bash
-dotnet ef database update
+cd backend/AssetInventory.Api
 ```
 
-If migrations do not exist yet, create one first:
+### 2. Create a migration (if none exist)
 
 ```bash
 dotnet ef migrations add InitialCreate
 ```
 
-Running the Backend
+### 3. Apply migrations to the database
 
-From the backend directory, run:
+```bash
+dotnet ef database update
+```
+
+## Running the Backend
+
+From the `backend/AssetInventory.Api` directory, run:
 
 ```bash
 dotnet run
@@ -72,21 +83,21 @@ The Backend API will be available at:
 http://localhost:5143
 ```
 
-Running the Frontend
+## Frontend Setup
 
-Navigate to the frontend directory:
+### 1. Navigate to the frontend directory:
 
 ```bash
 cd frontend/asset-inventory-web
 ```
 
-Install frontend dependencies:
+### 2. Install frontend dependencies:
 
 ```bash
 npm install
 ```
 
-Configure the API URL in:
+### 3. Configure the API URL in:
 
 ```swift
 frontend/asset-inventory-web/src/environments/environment.ts
@@ -102,7 +113,7 @@ export const environment = {
 ```
 
 
-Start the Angular development server:
+## Running the Frontend
 
 ```bash
 ng serve
