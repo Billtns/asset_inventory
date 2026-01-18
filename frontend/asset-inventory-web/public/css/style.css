@@ -1,0 +1,81 @@
+/* Layout */
+.layout-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar */
+.topbar {
+  height: 50px;
+  background: #343a40;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.logo {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.user {
+  margin-left: auto;
+}
+
+/* Body */
+.layout-body {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #212529;
+  color: #c2c7d0;
+  transition: width 0.3s;
+  overflow: hidden;
+}
+
+.sidebar .p-panelmenu {
+  border: none;
+}
+
+.sidebar .p-panelmenu .p-panelmenu-header > a {
+  background: transparent;
+  color: #c2c7d0;
+}
+
+.sidebar .p-panelmenu .p-menuitem-link {
+  color: #c2c7d0;
+}
+
+.sidebar .p-menuitem-link:hover {
+  background: #343a40;
+}
+
+/* Collapse */
+.sidebar-collapsed .sidebar {
+  width: 60px;
+}
+
+.sidebar-collapsed .p-menuitem-text {
+  display: none;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 1rem;
+  background: #f4f6f9;
+}
