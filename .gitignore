@@ -1,0 +1,87 @@
+############################
+# OS
+############################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+############################
+# Visual Studio / VS Code
+############################
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+############################
+# .NET / C#
+############################
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# Rider
+.idea/
+
+# ASP.NET Core
+appsettings.Development.json
+appsettings.Local.json
+
+# EF Core
+Migrations/*.Designer.cs
+Migrations/*.resx
+
+############################
+# NuGet
+############################
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+
+############################
+# Angular / Node
+############################
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# Angular Environment
+############################
+src/environments/environment.ts
+src/environments/environment.prod.ts
+
+############################
+# Tests / Coverage
+############################
+coverage/
+*.coverage
+*.coveragexml
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# Docker (ถ้ามี)
+############################
+docker-compose.override.yml
+
+############################
+# Secrets
+############################
+*.env
+.env.*
