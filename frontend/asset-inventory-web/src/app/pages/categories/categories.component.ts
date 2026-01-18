@@ -97,12 +97,7 @@ export class CategoriesComponent implements OnInit {
   saveCategory() {
     if (this.form.invalid) return;
 
-    if (this.form.invalid) return;
-
-    const payload = { ...this.form.value };
-
-    const action$ = this.isEdit ? this.categoryService.updateCategory(payload) : this.categoryService.createCategory(payload);
-
+    const action$ = this.isEdit ? this.categoryService.updateCategory(this.form.value) : this.categoryService.createCategory(this.form.value);
 
     action$.subscribe({
       next: (res) => {
