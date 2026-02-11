@@ -4,6 +4,7 @@ using AssetInventory.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AssetInventory.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260126072642_AddColumnUpdateBy")]
+    partial class AddColumnUpdateBy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,7 +83,7 @@ namespace AssetInventory.Api.Migrations
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -91,10 +94,10 @@ namespace AssetInventory.Api.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.HasKey("CategoryId");
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("longtext");
 
-                    b.HasIndex("CategoryName")
-                        .IsUnique();
+                    b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
                 });
@@ -128,28 +131,28 @@ namespace AssetInventory.Api.Migrations
                         new
                         {
                             StatusId = 1,
-                            CreatedAt = new DateTime(2026, 1, 28, 16, 53, 10, 603, DateTimeKind.Local).AddTicks(6760),
+                            CreatedAt = new DateTime(2026, 1, 26, 14, 26, 42, 39, DateTimeKind.Local).AddTicks(7760),
                             IsDelete = false,
                             StatusName = "Available"
                         },
                         new
                         {
                             StatusId = 2,
-                            CreatedAt = new DateTime(2026, 1, 28, 16, 53, 10, 603, DateTimeKind.Local).AddTicks(6970),
+                            CreatedAt = new DateTime(2026, 1, 26, 14, 26, 42, 39, DateTimeKind.Local).AddTicks(7940),
                             IsDelete = false,
                             StatusName = "In Use"
                         },
                         new
                         {
                             StatusId = 3,
-                            CreatedAt = new DateTime(2026, 1, 28, 16, 53, 10, 603, DateTimeKind.Local).AddTicks(6980),
+                            CreatedAt = new DateTime(2026, 1, 26, 14, 26, 42, 39, DateTimeKind.Local).AddTicks(7940),
                             IsDelete = false,
                             StatusName = "Repair"
                         },
                         new
                         {
                             StatusId = 4,
-                            CreatedAt = new DateTime(2026, 1, 28, 16, 53, 10, 603, DateTimeKind.Local).AddTicks(6980),
+                            CreatedAt = new DateTime(2026, 1, 26, 14, 26, 42, 39, DateTimeKind.Local).AddTicks(7940),
                             IsDelete = false,
                             StatusName = "Disposed"
                         });

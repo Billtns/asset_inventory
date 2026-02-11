@@ -14,5 +14,6 @@ export class AppLayoutComponent {
   menuItems: MenuItem[] = [
     { label: 'Assets', icon: 'pi pi-box', routerLink: '/assets' },
     { label: 'Categories', icon: 'pi pi-tags', routerLink: '/categories' },
+    { label: 'Users', icon: 'pi pi-users', routerLink: '/users' },
   ];
 }

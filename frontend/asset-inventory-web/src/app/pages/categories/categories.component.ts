@@ -109,6 +109,12 @@ export class CategoriesComponent implements OnInit {
           });
           this.loadCategories();
           this.categoryDialog = false;
+        }else{
+          this.messageService.add({
+            severity: 'warn',
+            summary: 'Warning',
+            detail: res.message
+          });
         }
       },
       error: () => {

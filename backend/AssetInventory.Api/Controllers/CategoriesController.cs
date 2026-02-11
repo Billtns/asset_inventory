@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using AssetInventory.Api.Data;
 using AssetInventory.Api.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace AssetInventory.Api.Controllers
 {
@@ -72,7 +74,7 @@ namespace AssetInventory.Api.Controllers
             {
                 var entity = new CategoriesModel
                 {
-                    CategoryName = input.CategoryName,
+                    CategoryName = input.CategoryName.Trim(),
                     CreatedAt = DateTime.Now
                 };
 
@@ -81,6 +83,21 @@ namespace AssetInventory.Api.Controllers
 
                 response.status = true;
                 response.message = "Create Category Success";
+                return response;
+            }
+            catch (DbUpdateException ex)
+            {
+                response.status = false;
+
+                if (ex.InnerException?.Message.Contains("Duplicate entry") == true)
+                {
+                    response.message = "Category name already exists";
+                }
+                else
+                {
+                    response.message = "Database error";
+                }
+
                 return response;
             }
             catch (Exception ex)
@@ -101,7 +118,7 @@ namespace AssetInventory.Api.Controllers
                 if (data != null)
                 {
 
-                    data.CategoryName = input.CategoryName;
+                    data.CategoryName = input.CategoryName.Trim();
                     data.UpdatedAt = DateTime.Now;
 
                     _context.Categories.Update(data);
@@ -118,10 +135,25 @@ namespace AssetInventory.Api.Controllers
                     return response;
                 }
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
                 response.status = false;
-                response.message = "Error" + ex.ToString();
+
+                if (ex.InnerException?.Message.Contains("Duplicate entry") == true)
+                {
+                    response.message = "Category name already exists";
+                }
+                else
+                {
+                    response.message = "Database error";
+                }
+
+                return response;
+            }
+            catch (Exception)
+            {
+                response.status = false;
+                response.message = "Unexpected error";
                 return response;
             }
         }

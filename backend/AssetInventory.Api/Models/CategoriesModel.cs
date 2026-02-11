@@ -1,14 +1,17 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace AssetInventory.Api.Models
 {
     [Table("Categories")]
+    [Index(nameof(CategoryName), IsUnique = true)]
     public class CategoriesModel
     {
         [Key]
         public int CategoryId { get; set; }
         [Required]
+        [Column(TypeName = "varchar(255)")]
         public string CategoryName { get; set; }  = string.Empty;
         public bool IsDelete { get; set; } = false;
         public DateTime CreatedAt { get; set; }

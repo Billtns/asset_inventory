@@ -83,7 +83,7 @@
                     <label for="assetName">Asset Name</label>
                     <input pInputText id="assetName" formControlName="assetName" />
 
-                    <small class="p-error" *ngIf="form.get('assetName')?.invalid && form.get('assetName')?.touched">
+                    <small class="p-error text-red" *ngIf="form.get('assetName')?.invalid && form.get('assetName')?.touched">
                         Asset Name is required
                     </small>
                 </div>
